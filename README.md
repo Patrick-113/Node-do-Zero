@@ -5,3 +5,4 @@
 
  API de manutenção de vídeos
  Uso do framework fastify para criar a API
+ Branch sem intregação com base de dados
