@@ -20,8 +20,10 @@ server.post('/videos', (request, reply) => {
     return reply.status(201).send(); //Envio de resposta com o código 201 - "Created"
 });
 
-server.get('/videos', () => {
-    const videos = database.list();
+server.get('/videos', (request) => {
+    const search = request.query.search; //Query string
+
+    const videos = database.list(search);
 
     return videos;
 });

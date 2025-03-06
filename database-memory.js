@@ -3,7 +3,7 @@ import { randomUUID } from "crypto"; //Método randomUUID retorna um id unico un
 export class DatabaseMemory {
     #videos = new Map(); //Map em javascript: conjunto de valores no formato [chave, dados]
 
-    list() {
+    list(search) {
         //##videos.entries() retorna um objeto iteravel com os item do Map [chave, dados] divido em subarrays
         //.map retorna um objeto iteravel onde [chave, dados] estão no mesmo array, ao inves de sub arrays
         //Array.from retorna um array de um objeto iteravel
@@ -15,8 +15,15 @@ export class DatabaseMemory {
                 id,
                 ...data
             }
+        })
+        .filter(video => {
+            // Lidando com Query Strings
+            if(search) {
+                return video.title.includes(search);
+            }
+
+            return true;
         });
-        //Esse formato é importante para uso do Id em requisições
     }
 
     create(video) {
