@@ -4,4 +4,7 @@
  link: https://youtu.be/hHM-hr9q4mo?si=M4e75ba7mI_WyLv2
 
  API de manutenção de vídeos
+
  Uso do framework fastify para criar a API
+
+ Branch com integração com base de dados PostGres
